@@ -1,0 +1,80 @@
+{
+  "name": "dsh-xiaoyu-go",
+  "version": "1.0.1",
+  "description": "小鱼 for DSH-Go · 按会话和模型切换系统提示词",
+  "author": "Mohai",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "dsh-bundle",
+    "dsh-go"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dshGo": {
+    "v": 1,
+    "title": {
+      "zh": "小鱼",
+      "en": "Xiaoyu"
+    },
+    "icon": "settings",
+    "contributes": {
+      "composer.actions": [
+        {
+          "id": "toggle",
+          "label": {
+            "zh": "呼叫小鱼",
+            "en": "Xiaoyu"
+          },
+          "icon": "bolt"
+        }
+      ],
+      "composer.strip": [
+        {
+          "id": "status",
+          "panel": "prompts"
+        }
+      ],
+      "panels": [
+        {
+          "id": "prompts",
+          "title": {
+            "zh": "小鱼提示词",
+            "en": "Xiaoyu prompts"
+          },
+          "placement": [
+            "session.tab",
+            "plugin"
+          ],
+          "presentation": "sheet"
+        }
+      ]
+    }
+  }
+}
