@@ -1,9 +1,13 @@
 {
   "name": "dsh-xiaoyu-go",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "小鱼 for DSH-Go · 按会话和模型切换系统提示词",
   "author": "Mohai",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MHTG001/dsh-xiaoyu-go.git"
+  },
   "type": "module",
   "main": "./lib/index.js",
   "exports": {
@@ -31,6 +35,10 @@
   },
   "peerDependencies": {
     "@deepseek-ai/dsh-llm": "0.2.2-rc.1"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "3.19.0",
+    "dsh-xiaoyu": "file:.."
   },
   "dsh": {
     "bundle": {
@@ -65,11 +73,14 @@
         {
           "id": "prompts",
           "title": {
-            "zh": "小鱼提示词",
-            "en": "Xiaoyu prompts"
+            "zh": "小鱼设置",
+            "en": "Xiaoyu Settings"
           },
+          "icon": "settings",
           "placement": [
             "session.tab",
+            "chat.panel",
+            "features",
             "plugin"
           ],
           "presentation": "sheet"
